@@ -1,0 +1,21 @@
+# Zeitpolizei Configuration
+
+server:
+  address: ":8765"
+  username: "admin"
+  password: "changeme"
+
+database:
+  path: "zeitpolizei.db"
+
+unifi:
+  url: "https://192.168.1.1"
+  username: "admin"
+  password: "your-unifi-password"
+  site: "default"
+  is_udm: true    # Set to true for UDM/UDM Pro/SE
+  insecure: true  # Skip TLS verification for self-signed certs
+
+tracker:
+  poll_interval: 30s
+  activity_min_bytes: 1024  # Minimum bytes to count as active minute

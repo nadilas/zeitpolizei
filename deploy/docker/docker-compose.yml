@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  zeitpolizei:
+    build:
+      context: ../..
+      dockerfile: deploy/docker/Dockerfile
+    container_name: zeitpolizei
+    restart: unless-stopped
+    ports:
+      - "8765:8765"
+    volumes:
+      - ./config.yaml:/app/config.yaml:ro
+      - zeitpolizei_data:/data
+    environment:
+      - TZ=Europe/Berlin
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8765/health"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  zeitpolizei_data:
