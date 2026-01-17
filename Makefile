@@ -1,4 +1,4 @@
-.PHONY: build run test clean dev web-dev web-build
+.PHONY: build run test clean dev web-dev web-build screenshots playwright-install
 
 # Build variables
 VERSION ?= $(shell git describe --tags --always --dirty 2>/dev/null || echo "dev")
@@ -87,3 +87,11 @@ docker-build:
 # Docker run
 docker-run:
 	docker run -p 8765:8765 -v $(PWD)/config.yaml:/app/config.yaml zeitpolizei:$(VERSION)
+
+# Generate screenshots for documentation
+screenshots:
+	cd web && npm install && npx playwright install chromium && npm run screenshots
+
+# Install Playwright browsers
+playwright-install:
+	cd web && npx playwright install chromium

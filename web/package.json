@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "screenshots": "playwright test tests/screenshots.spec.js --project=chromium",
+    "screenshots:update": "playwright test tests/screenshots.spec.js --project=chromium --update-snapshots"
   },
   "dependencies": {
     "vue": "^3.4.0",
@@ -14,6 +16,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.0",
+    "@playwright/test": "^1.40.0",
     "vite": "^5.0.0"
   }
 }

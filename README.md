@@ -2,6 +2,48 @@
 
 A parental control system for UniFi networks that enforces daily time and data limits on internet access per device.
 
+[![Build](https://github.com/nadilas/zeitpolizei/actions/workflows/build.yml/badge.svg)](https://github.com/nadilas/zeitpolizei/actions/workflows/build.yml)
+[![Release](https://github.com/nadilas/zeitpolizei/actions/workflows/release.yml/badge.svg)](https://github.com/nadilas/zeitpolizei/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Download & Install
+
+**For end users**: Download the latest release for your platform:
+
+| Platform | Architecture | Download |
+|----------|--------------|----------|
+| Linux | AMD64 (Intel/AMD) | [Download](https://github.com/nadilas/zeitpolizei/releases/latest/download/zeitpolizei-linux-amd64.tar.gz) |
+| Linux | ARM64 (UDM/Raspberry Pi) | [Download](https://github.com/nadilas/zeitpolizei/releases/latest/download/zeitpolizei-linux-arm64.tar.gz) |
+| macOS | Intel | [Download](https://github.com/nadilas/zeitpolizei/releases/latest/download/zeitpolizei-darwin-amd64.tar.gz) |
+| macOS | Apple Silicon | [Download](https://github.com/nadilas/zeitpolizei/releases/latest/download/zeitpolizei-darwin-arm64.tar.gz) |
+
+**Quick start:**
+```bash
+# Extract the archive
+tar -xzf zeitpolizei-*.tar.gz && cd zeitpolizei-*
+
+# Configure (edit with your UniFi credentials)
+cp config.example.yaml config.yaml
+nano config.yaml
+
+# Run
+./zeitpolizei -config config.yaml
+```
+
+See the [Installation Guide](docs/INSTALL.md) for detailed instructions for UDM, Docker, Synology, and other platforms.
+
+## Screenshots
+
+<p align="center">
+  <img src="docs/images/dashboard.png" alt="Dashboard" width="800">
+  <br><em>Main dashboard showing device status and usage</em>
+</p>
+
+<p align="center">
+  <img src="docs/images/device-config.png" alt="Device Configuration" width="800">
+  <br><em>Configure schedules and time limits per device</em>
+</p>
+
 ## Features
 
 - **Device Management**: Configure limits per MAC address
@@ -192,6 +234,21 @@ npm run dev
 ```
 
 The dev server runs on port 3000 and proxies API requests to :8765.
+
+## Documentation
+
+- **[Installation Guide](docs/INSTALL.md)** - Detailed installation instructions for all platforms
+- **[User Guide](docs/USER_GUIDE.md)** - How to use Zeitpolizei, configure devices, and troubleshoot
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
